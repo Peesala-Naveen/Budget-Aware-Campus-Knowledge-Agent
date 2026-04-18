@@ -1,0 +1,10 @@
+langchain
+llama-index
+chromadb
+sentence-transformers
+pypdf
+streamlit
+litellm
+ragas
+tiktoken
+python-dotenv
