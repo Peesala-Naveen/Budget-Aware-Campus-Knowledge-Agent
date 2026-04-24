@@ -17,18 +17,20 @@ def generate_answer(query):
         context += res["text"] + "\n\n"
 
     prompt = f"""
-You are a helpful campus assistant.
+    Act as a campus assistant and answer the following question bassed on provided context.
+    Give short answer + source.
+    the source should be added at the end of the answer in format: [source.pdf, page X]
+    The Answer should be in simple English with Perfect grammar and spelling.
+    The answers should follow the English language rules.
+    
 
-Answer ONLY from the context.
-Give short answer + source.
+    Context:
+    {context}
 
-Context:
-{context}
+    Question:
+    {query}
 
-Question:
-{query}
-
-Answer:
+    Answer:
 """
 
     response = requests.post(
