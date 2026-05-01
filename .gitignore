@@ -12,7 +12,7 @@ venv/
 # Data / embeddings (large, not needed on repo)
 backend/data/
 backend/embeddings/
-embeddings/
+# embeddings/
 
 # OS
 .DS_Store
