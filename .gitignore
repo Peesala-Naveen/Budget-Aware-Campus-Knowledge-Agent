@@ -3,27 +3,20 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.sqlite3
 
-# Virtual Environment
+# Virtual env
 venv/
 .env
 
-# VS Code
-.vscode/
+# Data / embeddings (large, not needed on repo)
+backend/data/
+backend/embeddings/
+embeddings/
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
 
 # Logs
 *.log
-
-# Database / embeddings (optional large files)
-embeddings/
-
-# Node (if frontend uses it)
-node_modules/
-
-# Build files
-dist/
-build/

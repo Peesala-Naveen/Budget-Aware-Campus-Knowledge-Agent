@@ -1,10 +1,9 @@
-langchain
-llama-index
+fastapi
+uvicorn
+python-dotenv
+requests
+pypdf
 chromadb
 sentence-transformers
-pypdf
-streamlit
-litellm
-ragas
-tiktoken
-python-dotenv
+langchain
+langchain-text-splitters
