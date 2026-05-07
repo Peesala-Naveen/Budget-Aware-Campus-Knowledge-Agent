@@ -1,45 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Campus Chatbot</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SASTRA Campus Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="dark">
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+    <button id="toggle" class="floating-toggle">☀️</button>
 
-        <!-- 🔥 FIXED HEADER -->
+    <aside class="sidebar">
         <div class="sidebar-header">
-            <h3>📜 Chat History</h3>
+            <div class="brand">
+                <div class="brand-icon">🎓</div>
+                <div class="brand-text">
+                    <h2>Campus AI</h2>
+                    <p>SASTRA Assistant</p>
+                </div>
+            </div>
         </div>
-
-        <!-- 🔥 SCROLLABLE CONTENT -->
+        <div class="new-chat">
+            <button class="new-chat-btn" onclick="location.reload()">+ New Chat</button>
+        </div>
         <div class="sidebar-content" id="history"></div>
+    </aside>
 
-    </div>
-
-    <!-- Main -->
-    <div class="main">
-
-        <!-- Header -->
+    <main class="main">
         <div class="header">
-            <h2>🎓SASTRA Campus Knowledge Chatbot</h2>
-            <button id="toggle">🌙</button>
+            <div class="logo-area">
+                <div class="logo-circle">🎓</div>
+                <div class="title-block">
+                    <h3>SASTRA Campus Assistant</h3>
+                    <p>AI Powered Knowledge Chatbot</p>
+                </div>
+            </div>
         </div>
 
-        <!-- Chat -->
-        <div class="chat" id="chat"></div>
-
-        <!-- Input -->
-        <div class="input-box">
-            <input id="input" placeholder="Ask your question..." />
-            <button id="sendBtn">➤</button>
+        <div class="chat-wrapper">
+            <div class="chat" id="chat">
+                <div class="welcome" id="welcome">
+                    <div class="welcome-icon">🎓</div>
+                    <h1>SASTRA Campus AI</h1>
+                    <p>
+                        Ask about academics, placements, regulations, exam schedules,
+                        college timings, faculty, syllabus and more.
+                    </p>
+                    <div class="suggestions" id="suggestions">
+                        <button>College timings</button>
+                        <button>Exam regulations</button>
+                        <button>Placement details</button>
+                        <button>Academic calendar</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-    </div>
+        <div class="input-container">
+            <div class="input-box">
+                <input id="input" placeholder="Message Campus AI..." autocomplete="off" />
+                <button id="sendBtn">➤</button>
+            </div>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
