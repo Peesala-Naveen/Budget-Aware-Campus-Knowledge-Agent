@@ -47,3 +47,5 @@ frontend/index.html
 
 * Add your API key in `.env`
 * Do not upload `.env` file
+* .env contains:
+OPENROUTER_API_KEY=.......
