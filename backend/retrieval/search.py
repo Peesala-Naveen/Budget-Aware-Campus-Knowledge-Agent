@@ -1,6 +1,14 @@
 from sentence_transformers import SentenceTransformer
 import chromadb
 
+# ✅ Load model once globally
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
+
+# ✅ NEW FUNCTION
+def get_embedding(text):
+    return model.encode([text]).tolist()
+
 
 def search_documents(query, top_k=5):
     print("🔄 Connecting to ChromaDB...")
@@ -8,11 +16,8 @@ def search_documents(query, top_k=5):
 
     collection = client.get_collection(name="campus_docs")
 
-    print("🔄 Loading embedding model...")
-    model = SentenceTransformer("all-MiniLM-L6-v2")  # ✅ ADD THIS
-
     print("🔄 Encoding query locally...")
-    query_embedding = model.encode(query).tolist()
+    query_embedding = get_embedding(query)[0]
 
     print("🔍 Searching...")
 
