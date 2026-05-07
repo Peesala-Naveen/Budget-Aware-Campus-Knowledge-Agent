@@ -4,3 +4,4 @@ python-dotenv
 requests
 pypdf
 chromadb
+sentence-transformers

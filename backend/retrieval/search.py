@@ -1,42 +1,18 @@
+from sentence_transformers import SentenceTransformer
 import chromadb
-import requests
-import os
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
-
-HF_TOKEN = os.getenv("HF_TOKEN")
 
 
-# 🔥 HuggingFace Embedding Function
-def get_embedding(text):
-    response = requests.post(
-        "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2",
-        headers={
-            "Authorization": f"Bearer {HF_TOKEN}"
-        },
-        json={"inputs": text}
-    )
-
-    if response.status_code != 200:
-        print("ERROR:", response.text)
-        return None
-
-    result = response.json()
-    return result[0]
-
-def search_documents(query, top_k=3):
+def search_documents(query, top_k=5):
     print("🔄 Connecting to ChromaDB...")
     client = chromadb.PersistentClient(path="embeddings")
 
     collection = client.get_collection(name="campus_docs")
 
-    print("🔄 Encoding query using HuggingFace API...")
-    query_embedding = get_embedding(query)
+    print("🔄 Loading embedding model...")
+    model = SentenceTransformer("all-MiniLM-L6-v2")  # ✅ ADD THIS
 
-    if query_embedding is None:
-        raise Exception("❌ HuggingFace embedding failed")
+    print("🔄 Encoding query locally...")
+    query_embedding = model.encode(query).tolist()
 
     print("🔍 Searching...")
 

@@ -55,7 +55,7 @@ async function send() {
 
     // API CALL
     try {
-        let res = await fetch("https://budget-aware-campus-knowledge-agent.onrender.com", {
+        let res = await fetch("http://127.0.0.1:8000/ask", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ question: text })
